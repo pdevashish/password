@@ -1,157 +1,124 @@
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Password Generator</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+    <title>Password Generator</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #141e30, #243b55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      color: #fff;
-    }
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+        }
 
-    .wrapper {
-      background: #1c1f2b;
-      padding: 3rem;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-      max-width: 400px;
-      width: 100%;
-    }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
 
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
-      text-align: center;
-      color: #f3f3f3;
-    }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-    }
+        input[type="text"] {
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
 
-    input[type="text"] {
-      padding: 0.9rem;
-      border: none;
-      border-radius: 10px;
-      font-size: 1rem;
-      background: #2c2f3d;
-      color: #fff;
-    }
+        input[type="text"]:focus {
+            border-color: #667eea;
+            outline: none;
+        }
 
-    input[type="text"]:focus {
-      outline: 2px solid #7289da;
-    }
+        input[type="submit"] {
+            padding: 0.8rem;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
 
-    input[type="submit"] {
-      padding: 0.9rem;
-      background: #7289da;
-      border: none;
-      color: white;
-      border-radius: 10px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
+        input[type="submit"]:hover {
+            background: #5a6cd8;
+        }
 
-    input[type="submit"]:hover {
-      background: #5f73bc;
-    }
+        .result-container {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            text-align: center;
+            word-break: break-all;
+            color: #333;
+        }
 
-    .output {
-      margin-top: 1.5rem;
-      background: #2c2f3d;
-      padding: 1rem;
-      border-radius: 10px;
-      text-align: center;
-      word-break: break-word;
-    }
+        .error {
+            background: #ffe3e3;
+            color: #dc3545;
+        }
 
-    .output.invalid {
-      background: #442626;
-      color: #ff6b6b;
-    }
+        .result-text {
+            margin: 0 0 1rem 0;
+            font-size: 1.1rem;
+        }
 
-    .btn-copy {
-      margin-top: 0.8rem;
-      padding: 0.6rem 1rem;
-      background: #3ba55d;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 0.9rem;
-      transition: background 0.3s;
-    }
+        .copy-btn {
+            padding: 0.6rem 1rem;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            font-size: 0.9rem;
+        }
 
-    .btn-copy:hover {
-      background: #2f8d4d;
-    }
-  </style>
+        .copy-btn:hover {
+            background: #218838;
+        }
+
+        .copy-btn.copied {
+            background: #17a2b8;
+        }
+    </style>
 </head>
 <body>
-  <div class="wrapper">
-    <h1>Password Generator by !NF!N!T€</h1>
-    <form id="X0">
-      <input type="text" id="A1" maxlength="4" placeholder="Enter 4 Digit SSID" required>
-      <input type="submit" value="Generate">
-    </form>
-    <div id="Z9" class="output" style="display:none;">
-      <p id="B2"></p>
-      <button class="btn-copy" onclick="window.C3()">Copy</button>
-    </div>
-  </div>
+    <div class="container">
+        <h1>Password Generator <BR> BY !NF!N!T€</h1>
+        <form method="post" action="">
+            <input type="text" 
+                   name="code" 
+                   maxlength="4" 
+                   placeholder="Enter SSID" 
+                   required>
+            <input type="submit" value="Generate Password">
+        </form>
+        
+            </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
-  <script>
-    (() => {
-      const F1 = x => CryptoJS.SHA1(x).toString(CryptoJS.enc.Hex).toUpperCase();
-      const F2 = y => [...[37, 35, 29, 31, 21, 27, 23, 25, 22, 9, 13, 33, 8, 7]].map(i => y[i]).join('');
-      const F3 = z => /^\d{4}$/.test(z);
-
-      const F4 = (t) => {
-        const h = F1(t);
-        return F2(h);
-      };
-
-      const F5 = () => {
-        const x = document.getElementById('A1').value.trim();
-        const o = document.getElementById('Z9');
-        const r = document.getElementById('B2');
-        if (!F3(x)) {
-          r.textContent = 'Invalid';
-          o.classList.add('invalid');
-        } else {
-          r.textContent = F4(x);
-          o.classList.remove('invalid');
-        }
-        o.style.display = 'block';
-      };
-
-      document.getElementById('X0').addEventListener('submit', e => {
-        e.preventDefault();
-        F5();
-      });
-
-      window.C3 = () => {
-        const txt = document.getElementById('B2').textContent;
-        navigator.clipboard.writeText(txt).then(() => alert('Copied!'));
-      };
-    })();
-  </script>
+  <script>var _0xc61e=["","split","0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ+/","slice","indexOf","","",".","pow","reduce","reverse","0"];function _0xe62c(d,e,f){var g=_0xc61e[2][_0xc61e[1]](_0xc61e[0]);var h=g[_0xc61e[3]](0,e);var i=g[_0xc61e[3]](0,f);var j=d[_0xc61e[1]](_0xc61e[0])[_0xc61e[10]]()[_0xc61e[9]](function(a,b,c){if(h[_0xc61e[4]](b)!==-1)return a+=h[_0xc61e[4]](b)*(Math[_0xc61e[8]](e,c))},0);var k=_0xc61e[0];while(j>0){k=i[j%f]+k;j=(j-(j%f))/f}return k||_0xc61e[11]}eval(function(h,u,n,t,e,r){r="";for(var i=0,len=h.length;i<len;i++){var s="";while(h[i]!==n[e]){s+=h[i];i++}for(var j=0;j<n.length;j++)s=s.replace(new RegExp(n[j],"g"),j);r+=String.fromCharCode(_0xe62c(s,e,10)-t)}return decodeURIComponent(escape(r))}("ZzxkxyxkZSSxkxxykxyZkZSSzkxzykxxzkxxykZzxkxyZkxxzkxxxkZSZzkzxZkxxzkzSxkxxSkxzykxxxkxySkxxzkxZxkZSSZkxyykySykxyzkxxSkxyzkxxZkxyzkxxykZSSzkzySkxyykyZZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykySzkZzxkZSySkZzxkxyZkxxzkxxykZSSykZSSzkZzxkZSSzkxyzkZSZykZSSzkZzxkyxzkZzxkxyykxxzkxyZkZSSxkxxZkxyzkxxykZSSzkyZzkxzSkxyzkZSSzkzZZkxxSkxyzkxxZkxyzkxxykZSSzkzSzkZSZzkzySkxyykySykxyzkxxSkxyzkxxZkxyzkxxykZSSzkzySkxyykySzkyZzkZSSzkxyzkZSZykZSSzkzSxkxxzkxxykZSSzkxyzkxxykZSSzkyxZkZzxkxzykxyxkZzxkySykxxykxZxkZSZSkxzykxzSkxZxkZSSzkxxzkZSSZkyZzkxyZkxxSkxzykxxxkxySkxxzkxZxkZSSZkxyykZzxkySSkySSkZzxkZSZZkxzykxxykxyykxxzkZSZZkyZzkxzykZSSykzxSkxyzkxyZkZSSxkZSSZkxyzkzSxkxxzkxxykZSSzkxyzkZSZykZSSzkySzkZzxkZSySkZzxkxxykxZxkZSZSkxzykxzSkxZxkZSSzkxxzkZSSZkyZzkxyZkxxSkxzykxxxkxySkxxzkxZxkZSSZkxyykyZzkZSZZkZSSZkxzykZSSzkxyzkzxZkxyzkZSZykZSSzkySykZSSzkxyzkZSZykZSSzkySzkyZzkZSSzkxzZkxyzkxxykySykySykySzkZzxkyxzkyxxkZzxkZSySkZzxkZSSykxzZkxxzkZSZZkzSxkxxzkxxxkxzykxyzkxyykzxSkZSSzkxZxkZSSzkxyzkySykxySkZSSxkZSSzkZSSzkxxzkxxykySzkyxZkZzxkZSyykySzkyZzkxyZkxZxkZSSzkxyZkxzZkySykxyzkZSSZkZSSZkZzxkyxzkyxxkZzxkZSySkZzxkxyZkxxzkxxykZSSykxxzkxxSkxyzkyZzkxyzkZSSZkZSSZkxxzkZSSZkySykySZkzSxkxxSkxzykxxxkxySkxxzkxZxkZSSZkxyykZzxkzSykzzykzySkZzxkxyxkxZxkxzykxxSkxyzkxyykyxSkZzxkySZkyZZkZzxkxyzkZSSZkZSSZkySzkyxZkZzxkxyxkxZxkxxSkxxSkxySkxZxkxyZkxzxkzSxkxxzkxxxkZSZzkySykZSSzkxyzkZSZykZSSzkyZZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykySzkyxZkZzxkZSyykySzkyxZkZzxkZSyykZzxkxyzkxxSkZSSykxyzkZzxkZSySkZzxkxyxkxZxkxxSkxxSkxySkxZxkxyZkxzxkzSxkxxzkxxxkZSZzkySykZSSzkxyzkZSZykZSSzkyZZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykySzkyxZkZzxkZSyykZzxkZSyykZzxkxyxkZSSxkxxykxyZkZSSzkxzykxxzkxxykZzxkxyxkxZxkxxSkxxSkxySkxZxkxyZkxzxkzSxkxxzkxxxkZSZzkySykZSSzkxyzkZSZykZSSzkyZZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykySzkZzxkZSySkZzxkxyZkxxzkxxykZSSykZSSzkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkZzxkyxzkZzxkxyykxxzkxyZkZSSxkxxZkxyzkxxykZSSzkyZzkxyZkZSSZkxyzkxZxkZSSzkxyzkzZZkxxSkxyzkxxZkxyzkxxykZSSzkySykZxZkZSSzkxyzkZSZykZSSzkxZxkZSSZkxyzkxZxkZxZkySzkyxZkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkyZzkZSZSkxZxkxxSkZSSxkxyzkZzxkyxzkZzxkZSSzkxyzkZSZykZSSzkyxZkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkyZzkZSSykZSSzkZSZzkxxSkxyzkyZzkxxxkxxzkZSSykxzykZSSzkxzykxxzkxxykZzxkyxzkZzxkZxZkxyxkxzykZSZykxyzkxyykZxZkyxZkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkyZzkZSSykZSSzkZSZzkxxSkxyzkyZzkxxzkxxxkxZxkxyZkxzykZSSzkZSZzkZzxkyxzkZzxkZxZkyySkZxZkyxZkZzxkxyykxxzkxyZkZSSxkxxZkxyzkxxykZSSzkyZzkxySkxxzkxyykZSZzkyZzkxZxkxxxkxxxkxyzkxxykxyykzSxkxzZkxzykxxSkxyykySykZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkySzkyxZkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkyZzkxyxkxxzkxyZkZSSxkZSSykySykySzkyxZkZzxkZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkyZzkZSSykxyzkxxSkxyzkxyZkZSSzkySykySzkyxZkZzxkZSSzkZSSZkZSZzkZzxkZSySkZzxkxyykxxzkxyZkZSSxkxxZkxyzkxxykZSSzkyZzkxyzkZSZykxyzkxyZkzSxkxxzkxxZkxxZkxZxkxxykxyykySykySZkxyZkxxzkxxxkZSZzkySZkySzkyxZkZzxkZSSykxzZkxxzkZSZZkzSxkxxzkxxxkxzykxyzkxyykzxSkZSSzkxZxkZSSzkxyzkySykxySkZSSxkZSSzkZSSzkxxzkxxykySzkyxZkZzxkZSyykZzxkxyZkxZxkZSSzkxyZkxzZkZzxkySykxyzkZSSZkZSSZkySzkZzxkZSySkZzxkxyZkxxzkxxykZSSykxxzkxxSkxyzkyZzkxyzkZSSZkZSSZkxxzkZSSZkySykySZkzZykxZxkxxSkxxSkxySkxZxkxyZkxzxkZzxkxyZkxxzkxxxkZSZzkZzxkxyxkxZxkxzykxxSkxyzkxyykyxSkZzxkySZkyZZkZzxkxyzkZSSZkZSSZkySzkyxZkZzxkZSyykZzxkxyykxxzkxyZkZSSxkxxZkxyzkxxykZSSzkyZzkxySkxxzkxyykZSZzkyZzkZSSZkxyzkxxZkxxzkZSZSkxyzkzSxkxzZkxzykxxSkxyykySykZSSzkxyzkZSZykZSSzkzSykZSSZkxyzkxZxkySzkyxZkZzxkZSyykZzxkxyxkZSSxkxxykxyZkZSSzkxzykxxzkxxykZzxkZSSykxzZkxxzkZSZZkzSxkxxzkxxxkxzykxyzkxyykzxSkZSSzkxZxkZSSzkxyzkySykxySkZSSxkZSSzkZSSzkxxzkxxykySzkZzxkZSySkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykyZzkxyZkxxSkxZxkZSSykZSSykzyzkxzykZSSykZSSzkyZzkxZxkxyykxyykySykySZkxyZkxxzkxxxkxzykxyzkxyykySZkySzkyxZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykyZzkZSSzkxyzkZSZykZSSzkzSxkxxzkxxykZSSzkxyzkxxykZSSzkZzxkyxzkZzxkySZkzSxkxxzkxxxkxzykxyzkxyykZxSkySZkyxZkZzxkZSSykxyzkZSSzkzxZkxzykxxZkxyzkxxzkZSSxkZSSzkySykySykySzkZzxkyxzkyxxkZzxkZSySkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykyZzkxyZkxxSkxZxkZSSykZSSykzyzkxzykZSSykZSSzkyZzkZSSZkxyzkxxZkxxzkZSZSkxyzkySykySZkxyZkxxzkxxxkxzykxyzkxyykySZkySzkyxZkZzxkxySkZSSxkZSSzkZSSzkxxzkxxykyZzkZSSzkxyzkZSZykZSSzkzSxkxxzkxxykZSSzkxyzkxxykZSSzkZzxkyxzkZzxkySZkzSxkxxzkxxxkZSZzkZzxkzzykxZxkZSSykZSSykZSZZkxxzkZSSZkxyykySZkyxZkZzxkZSyykyZZkZzxkyyykyySkyySkyySkySzkyxZkZzxkZSyykZzxk",69,"SZyzxkABb",12,5,38))</script>
 </body>
 </html>
